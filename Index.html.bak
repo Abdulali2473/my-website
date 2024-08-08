@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهيكل التنظيمي لعمادة الدراسات العليا</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('download.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .icon-option {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .icon-option i {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .icon-option:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .department-header {
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .department-header:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .department-content {
+            display: none;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .department-content p {
+            margin: 0;
+            padding: 5px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-5">مرحباً بكم في بوابة عمادة الدراسات العليا</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="icon-option" id="faqOption">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>الأسئلة الأكثر شيوعاً</h3>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="icon-option" id="departmentsOption">
+                    <i class="fas fa-building"></i>
+                    <h3>الجهة</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="contentArea" class="mt-5">
+            <!-- سيتم عرض المحتوى هنا -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

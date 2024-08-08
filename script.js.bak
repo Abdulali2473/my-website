@@ -1,0 +1,62 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const faqOption = document.getElementById('faqOption');
+    const departmentsOption = document.getElementById('departmentsOption');
+    const contentArea = document.getElementById('contentArea');
+
+    const departments = [
+        {
+            "الجهة": "عميد عمادة الدراسات العليا",
+            "الموظفين": [
+                { "الاسم": "د.ســعــــــد محمـــــد الســـعـــــــــدي", "السيسكو": "32555", "البريد": "gs@iau.edu.sa" },
+                { "الاسم": "د.محـمد اســـــماعيل عبدالرحمــــن", "السيسكو": "32570", "البريد": "miismail@iau.edu.sa" }
+            ]
+        },
+        {
+            "الجهة": "مديرة الشؤون الإدارية والمالية بعمادة الدراسات العليا",
+            "الموظفين": [
+                { "الاسم": "أ.مــرفــــــــت أحمـــــــد فــــلاتـــــــــة", "السيسكو": "32587", "البريد": "mafallatah@iau.edu.sa" }
+            ]
+        },
+        {
+            "الجهة": "وحدة المالية",
+            "الموظفين": [
+                { "الاسم": "أ.عبدالله بن أحمد المالكي", "السيسكو": "32645", "البريد": "aalmaliki@iau.edu.sa", "المسمى الوظيفي": "رئيس وحدة المالية" },
+                { "الاسم": "أ.محمد بن سعيد القحطاني", "السيسكو": "32650", "البريد": "msqhatani@iau.edu.sa", "المسمى الوظيفي": "محاسب" }
+            ]
+        }
+    ];
+
+    faqOption.addEventListener('click', function() {
+        contentArea.innerHTML = '<h2 class="text-center">الأسئلة الأكثر شيوعاً</h2><p>هنا ستظهر الأسئلة الأكثر شيوعاً...</p>';
+    });
+
+    departmentsOption.addEventListener('click', function() {
+        contentArea.innerHTML = ''; // تفريغ المحتوى السابق
+
+        departments.forEach((department, index) => {
+            const departmentHeader = document.createElement('div');
+            departmentHeader.classList.add('department-header');
+            departmentHeader.textContent = department['الجهة'];
+
+            const departmentContent = document.createElement('div');
+            departmentContent.classList.add('department-content');
+            departmentContent.id = 'department-content-' + index;
+
+            department["الموظفين"].forEach(employee => {
+                const employeeInfo = document.createElement('p');
+                employeeInfo.innerHTML = `<strong>الاسم:</strong> ${employee["الاسم"]} <br>
+                                          <strong>السيسكو:</strong> ${employee["السيسكو"]} <br>
+                                          <strong>البريد الإلكتروني:</strong> ${employee["البريد"]} <br>
+                                          <strong>المسمى الوظيفي:</strong> ${employee["المسمى الوظيفي"] || "غير متوفر"}`;
+                departmentContent.appendChild(employeeInfo);
+            });
+
+            contentArea.appendChild(departmentHeader);
+            contentArea.appendChild(departmentContent);
+
+            departmentHeader.addEventListener('click', function() {
+                departmentContent.style.display = departmentContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    });
+});
